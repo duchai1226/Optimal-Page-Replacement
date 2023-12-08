@@ -10,6 +10,12 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
     {
         static void Main(string[] args)
         {
+            Memory oPT = new Memory();
+            oPT.Input();
+            oPT.TransToPageList();
+            oPT.DoOPT();
+            oPT.PrintResult();
+            Console.ReadLine();
         }
     }
 }

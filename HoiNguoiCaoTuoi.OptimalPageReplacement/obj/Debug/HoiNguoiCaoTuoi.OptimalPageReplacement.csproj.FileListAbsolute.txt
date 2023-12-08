@@ -1,0 +1,7 @@
+D:\Project\Bài tập\OS\HoiNguoiCaoTuoi.OptimalPageReplacement\HoiNguoiCaoTuoi.OptimalPageReplacement\bin\Debug\HoiNguoiCaoTuoi.OptimalPageReplacement.exe.config
+D:\Project\Bài tập\OS\HoiNguoiCaoTuoi.OptimalPageReplacement\HoiNguoiCaoTuoi.OptimalPageReplacement\bin\Debug\HoiNguoiCaoTuoi.OptimalPageReplacement.exe
+D:\Project\Bài tập\OS\HoiNguoiCaoTuoi.OptimalPageReplacement\HoiNguoiCaoTuoi.OptimalPageReplacement\bin\Debug\HoiNguoiCaoTuoi.OptimalPageReplacement.pdb
+D:\Project\Bài tập\OS\HoiNguoiCaoTuoi.OptimalPageReplacement\HoiNguoiCaoTuoi.OptimalPageReplacement\obj\Debug\HoiNguoiCaoTuoi.OptimalPageReplacement.csproj.AssemblyReference.cache
+D:\Project\Bài tập\OS\HoiNguoiCaoTuoi.OptimalPageReplacement\HoiNguoiCaoTuoi.OptimalPageReplacement\obj\Debug\HoiNguoiCaoTuoi.OptimalPageReplacement.csproj.CoreCompileInputs.cache
+D:\Project\Bài tập\OS\HoiNguoiCaoTuoi.OptimalPageReplacement\HoiNguoiCaoTuoi.OptimalPageReplacement\obj\Debug\HoiNguoiCaoTuoi.OptimalPageReplacement.exe
+D:\Project\Bài tập\OS\HoiNguoiCaoTuoi.OptimalPageReplacement\HoiNguoiCaoTuoi.OptimalPageReplacement\obj\Debug\HoiNguoiCaoTuoi.OptimalPageReplacement.pdb
