@@ -25,6 +25,9 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
                     inputString = value;
             }
         }
+        /// <summary>
+        ///     Imoport inputString
+        /// </summary>
         public void Input()
         {
             Console.Write("Nhap so Frame: ");
@@ -32,6 +35,9 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
             Console.Write("Nhap chuoi dau vao: ");
             inputString=Console.ReadLine();
         }
+        /// <summary>
+        /// Trans inputString into PageList
+        /// </summary>
         public void TransToPageList()
         {
             foreach(char t in inputString)
@@ -39,6 +45,12 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
                 pageList.Add(t.ToString());
             }
         }
+
+        /// <summary>      
+        /// Do FiFo and make listIn to only have one elment is longest exist
+        /// </summary>
+        /// <param name="indexStart"></param>
+        /// <param name="listIn"></param>
         public void DoFiFo(int indexStart,List<string> listIn)
         {
             int distance = 0;
@@ -59,6 +71,11 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
                     listIn.Remove(pageList[distance]);
             }
         }
+        /// <summary>
+        /// Return index of physicalMemory will be change
+        /// </summary>
+        /// <param name="indexStart"></param>
+        /// <returns></returns>
         public int CheckFrame(int indexStart)
         {
             List<string> checkList = new List<string>(physicalMemory);
@@ -79,6 +96,12 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
             int n = 0; //Vi chi thay 1 trang nen tra ve vi tri cua trang duy nhat can thay trong checkList
             return ReturnIndex(physicalMemory, checkList[n]);
         }
+        /// <summary>
+        /// Return index of string a in list listIn
+        /// </summary>
+        /// <param name="listIn"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         int ReturnIndex(List<string> listIn,string a)
         {
             int index = -1;
@@ -89,21 +112,32 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
             }
             return index;
         }
+        /// <summary>
+        /// Do OPT ( Optimal Page Replacement )
+        /// </summary>
         public void DoOPT()
         {
             for(int i=0;i<pageList.Count;i++)
             {
                 if (physicalMemory.Contains(pageList[i]))
-                { }
+                {
+                    List<string> nullTemp = new List<string> { " ", " ", " " };
+                    resultList.Add(nullTemp);
+                    goto end;
+                }
                 else if (physicalMemory.Count() < frameCount)
                     physicalMemory.Add(pageList[i]);
                 else
                     physicalMemory[CheckFrame(i)] = pageList[i];
                 List<string> temp = new List<string>(physicalMemory);
                 resultList.Add(temp);
+            end:;
             }
         }
-        public void PrintResultByCol()
+        /// <summary>
+        /// Print result by columns
+        /// </summary>
+        public void PrintByCol()
         {
             foreach (string t in pageList)
                 Console.Write("{0}  ", t);
@@ -120,7 +154,10 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
                 Console.WriteLine();
             }
         }
-        public void PrintResultByRow()
+        /// <summary>
+        /// Print result by Row
+        /// </summary>
+        public void PrintByRow()
         {
             int index = 0;
             foreach(List<string> t in resultList)
@@ -134,15 +171,18 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
                 Console.WriteLine();
             }
         }
+        /// <summary>
+        /// Print result, function know when print by column and when print by row
+        /// </summary>
         public void PrintResult()
         {
             if (pageList.Count() > 40)
             {
                 Console.WriteLine("Chuoi nhap vao qua dai va co the gay ra loi trinh bay\nHe thong tu dong chuyen sang dang in ngang");
-                PrintResultByRow();
+                PrintByRow();
             }
             else
-                PrintResultByCol();
+                PrintByCol();
         }
     }
 }
