@@ -30,8 +30,10 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
         /// </summary>
         public void Input()
         {
+            Console.WriteLine("So Frame la 1 so nguyen!");
             Console.Write("Nhap so Frame: ");
             int.TryParse(Console.ReadLine(), out frameCount);
+            Console.WriteLine ("LUU Y: Moi ky tu tuong ung voi ten mot tien trinh, so am thi la 2 ki tu!");
             Console.Write("Nhap chuoi dau vao: ");
             inputString=Console.ReadLine();
         }
@@ -144,17 +146,31 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
             }
         }
         /// <summary>
+        /// Check string a is a negative number
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public bool IsNegative(string a)
+        {
+            if (a[0] == '-' && int.Parse(a) < 0)
+                return true;
+            else
+                return false;
+        }
+        /// <summary>
         /// Check negative number in list
         /// Return 0 if positive numbers, return 1 if negative number.
         /// </summary>
         /// <returns></returns>
-        public int CheckNegative(List<string> listIn)
+        public int CheckNegativeInList(List<string> listIn)
         {
             int result = 0;
-            foreach(string t in listIn)
+             foreach(string t in listIn)
             {
-                if (int.Parse(t) < 0)
+                if(IsNegative(t))
+                {
                     result = 1;
+                }
             }
             return result;
         }
@@ -186,15 +202,14 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
             int index = 0;
             foreach(List<string> t in resultList)
             {
-                if(int.Parse(pageList[index])<0)
+                if (IsNegative(pageList[index]))
                     Console.Write("{0}\t", pageList[index]);
                 else
                     Console.Write(" {0}\t", pageList[index]);
-
                 index++;
                 foreach(string i in t)
                 {
-                    if (i==" "||int.Parse(i) < 0)
+                    if (i==" "||IsNegative(i))
                         Console.Write("{0}  ",i);
                     else
                         Console.Write(" {0}  ",i);
@@ -207,7 +222,7 @@ namespace HoiNguoiCaoTuoi.OptimalPageReplacement
         /// </summary>
         public void PrintResult()
         {
-            if (pageList.Count() > 40|| CheckNegative(pageList) == 1)
+            if (pageList.Count() > 40|| CheckNegativeInList(pageList) == 1)
             {
                 Console.WriteLine("Chuoi nhap vao qua dai hoac co so am, co the gay ra loi trinh bay\nHe thong tu dong chuyen sang dang in ngang");
                 PrintByRow();
